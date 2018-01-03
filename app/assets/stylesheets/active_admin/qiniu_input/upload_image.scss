@@ -1,0 +1,67 @@
+.qiniu-image-input {
+  .size-hints {
+    margin-left: 20%;
+    color: #8494a8;
+  }
+
+  .add-single-picture {
+    height: 150px;
+    line-height: 210px;
+    width: 150px;
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    position: relative;
+    vertical-align: top;
+    img {
+      width: 100%;
+      height: 100%;
+      &:hover {
+        cursor: pointer;
+      };
+    }
+    .hidden-input {
+      display: none;
+    }
+    &:hover {
+      background-color: black;
+      opacity: 0.4;
+      border-radius: 10px;
+      span {
+        color: white;
+      }
+      .add-images, .add-image {
+        cursor: pointer;
+      }
+    }
+    .add-images, .add-image {
+      opacity: 0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      vertical-align: top;
+      position: absolute;
+      z-index: 999;
+      left: 0;
+    }
+    .upload-icon {
+      left: 50%;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      display: inline-block;
+      background-size: 122px;
+      transform: translate(-50%, -50%);
+      background: image-url("active_admin/qiniu_input/upload.png") no-repeat left top;
+    }
+    .upload-span {
+      left: 50%;
+      top: 60%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

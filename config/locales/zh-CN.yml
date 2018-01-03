@@ -1,0 +1,10 @@
+zh-CN:
+  active_admin:
+    qiniu_input:
+      upload: 上传
+      uploading: 正在上传...
+      uploaded: 已上传
+      upload_span: 上传图片
+      unsupported_format: 不支持当前格式
+      upload_image_hint: 建议JPG、PNG格式
+      choose_file: 选择文件
