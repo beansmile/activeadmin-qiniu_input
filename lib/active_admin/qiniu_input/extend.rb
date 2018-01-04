@@ -9,9 +9,11 @@ ActiveAdmin::Views::TableFor.class_eval do
   def qiniu_video_column(attribute)
     column attribute do |model|
       url = model.try(attribute)
-      url.present? ?
-        video_tag(url, width: 150, controls: true, preload: 'auto', controlsList: 'nodownload') :
-        url
+      if url.present?
+        video(width: 150, controls: true, preload: 'auto', controlsList: 'nodownload') do
+          source src: url
+        end
+      end
     end
   end
 end
@@ -27,9 +29,11 @@ ActiveAdmin::Views::AttributesTable.class_eval do
   def qiniu_video_row(attribute)
     row attribute do |model|
       url = model.try(attribute)
-      url.present? ?
-        video_tag(url, width: 300, controls: true, preload: 'auto', controlsList: 'nodownload') :
-        url
+      if url.present?
+        video(width: 300, controls: true, preload: 'auto', controlsList: 'nodownload') do
+          source src: url
+        end
+      end
     end
   end
 end

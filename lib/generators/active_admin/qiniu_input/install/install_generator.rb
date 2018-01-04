@@ -15,7 +15,7 @@ module ActiveAdmin
 
           begin
             inject_into_file("#{file_path}.js.coffee", line_to_add, after: reference)
-          rescue Errno::ENOENT
+          rescue Thor::Error, Errno::ENOENT
             line_to_add = "//= require active_admin/qiniu_input\n"
             reference = "//= require active_admin/base\n"
             inject_into_file("#{file_path}.js", line_to_add, after: reference)
@@ -28,7 +28,7 @@ module ActiveAdmin
 
           begin
             prepend_file("#{file_path}.scss", line_to_add)
-          rescue Errno::ENOENT
+          rescue Thor::Error, Errno::ENOENT
             prepend_file("#{file_path}.css.scss", line_to_add)
           end
         end
