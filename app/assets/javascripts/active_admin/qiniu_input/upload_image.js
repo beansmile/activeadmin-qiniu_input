@@ -12,6 +12,7 @@ $(document).ready(function() {
   function getQiniuMeta(_that, event) {
     $.ajax({
       type: 'GET',
+      data: { uploadType: 'image' },
       url: $(_that).data('qiniu-meta-url'),
       success: function(data) {
         var token = data.token;

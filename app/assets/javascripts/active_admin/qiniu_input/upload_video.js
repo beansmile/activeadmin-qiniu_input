@@ -51,7 +51,7 @@ $(document).ready(function() {
 
         $.ajax({
           type: 'GET',
-          data: { type: $self.data('type') },
+          data: { type: $self.data('type'), uploadType: 'video' },
           url: $self.data('qiniu-meta-url'),
           success: function(data) {
            var token = data.token;
