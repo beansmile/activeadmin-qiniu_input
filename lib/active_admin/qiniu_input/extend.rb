@@ -16,6 +16,15 @@ ActiveAdmin::Views::TableFor.class_eval do
       end
     end
   end
+
+  def qiniu_audio_column(attribute)
+    column attribute do |model|
+      url = model.try(attribute)
+      if url.present?
+        audio(src: url, width: 150, controls: true, preload: 'auto', controlsList: 'nodownload')
+      end
+    end
+  end
 end
 
 ActiveAdmin::Views::AttributesTable.class_eval do
@@ -33,6 +42,15 @@ ActiveAdmin::Views::AttributesTable.class_eval do
         video(width: 300, controls: true, preload: 'auto', controlsList: 'nodownload') do
           source src: url
         end
+      end
+    end
+  end
+
+  def qiniu_audio_row(attribute)
+    row attribute do |model|
+      url = model.try(attribute)
+      if url.present?
+        audio(src: url, width: 300, controls: true, preload: 'auto', controlsList: 'nodownload')
       end
     end
   end
