@@ -51,18 +51,20 @@ form do |f|
   f.inputs do
     f.input :image_url, as: :qiniu_image
     f.input :video_url, as: :qiniu_video
+    f.input :audio_url, as: :qiniu_audio
   end
   f.actions
 end
 ```
 
-* we also add `qiniu_image_column`, `qiniu_video_column`, `qiniu_image_row` and `qiniu_video_row` dsl to show images and videos.
+* we also add `qiniu_image_column`, `qiniu_video_column`, `qiniu_audio_column`, `qiniu_image_row`, `qiniu_video_row` and `qiniu_audio_row` dsl to show images, videos and audio.
 
 ```ruby
 index do
   column :title
   qiniu_image_column :image_url
   qiniu_video_column :video_url
+  qiniu_audio_column :audio_url
   actions
 end
 
@@ -72,6 +74,7 @@ show do
     row :title
     qiniu_image_row :image_url
     qiniu_video_row :video_url
+    qiniu_audio_row :audio_url
     row :created_at
     row :updated_at
   end

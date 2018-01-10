@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :title, :image_url, :video_url
+  permit_params :title, :image_url, :video_url, :audio_url
 #
 # or
 #
@@ -16,6 +16,7 @@ ActiveAdmin.register Post do
     column :title
     qiniu_image_column :image_url
     qiniu_video_column :video_url
+    qiniu_audio_column :audio_url
     actions
   end
 
@@ -25,6 +26,7 @@ ActiveAdmin.register Post do
       row :title
       qiniu_image_row :image_url
       qiniu_video_row :video_url
+      qiniu_audio_row :audio_url
       row :created_at
       row :updated_at
     end
@@ -35,6 +37,7 @@ ActiveAdmin.register Post do
       f.input :title
       f.input :image_url, as: :qiniu_image
       f.input :video_url, as: :qiniu_video
+      f.input :audio_url, as: :qiniu_audio
     end
     f.actions
   end
