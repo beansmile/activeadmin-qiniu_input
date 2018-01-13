@@ -18,7 +18,7 @@ module ActiveAdmin
                   <span class="upload-icon"></span>
                   <span class="upload-span">#{I18n.t('active_admin.qiniu_input.upload_span')}</span>
                 </div>
-                <p class='size-hints'>(#{options[:hint] || I18n.t('active_admin.qiniu_input.upload_image_hint')})</p>
+                <p class='size-hints'>(#{options[:qiniu_image_hint] || I18n.t('active_admin.qiniu_input.upload_image_hint')})</p>
               </div>
             HTML
             .html_safe
