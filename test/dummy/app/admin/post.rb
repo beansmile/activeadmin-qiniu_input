@@ -35,7 +35,7 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :image_url, as: :qiniu_image
+      f.input :image_url, as: :qiniu_image, qiniu_image_hint: '图片最佳尺寸是 256 * 256'
       f.input :video_url, as: :qiniu_video
       f.input :audio_url, as: :qiniu_audio
     end
