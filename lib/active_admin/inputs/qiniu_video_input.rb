@@ -11,7 +11,7 @@ module ActiveAdmin
               <div class="video-wrapper">
                 <div class="upload-btn">
                   <input name="#{object_name}[#{input_name}]" class="hidden-input video_field" value="#{value}"/>
-                  <input accept="video/mp4" class="video_file" type="file" data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}" data-qiniu-meta-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}" >
+                  <input accept="video/*" class="video_file" type="file" data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}" data-qiniu-meta-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}" >
                   <span class='file-select'>#{I18n.t('active_admin.qiniu_input.choose_file')}</span>
                   <span class='file-name'></span>
                   <button class='upload_video' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
