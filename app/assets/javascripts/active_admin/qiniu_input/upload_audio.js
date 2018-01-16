@@ -5,6 +5,17 @@ $(document).ready(function() {
     fileUpload($(this).siblings(".audio_file"), afterFileUpload);
   })
 
+  $(document).on('click', '.delete_audio', function(e){
+    e.preventDefault();
+    var _this = $(this);
+    _this.parents('.audio-wrapper').find('.inline-hints').html('');
+    _this.siblings('.audio_field').val('');
+    _this.siblings('.audio_file').val('');
+    _this.siblings('.file-name').text('');
+    _this.siblings(".upload_audio").attr('disabled', 'disabled');
+    _this.attr('disabled', 'disabled');
+  });
+
   $(document).on('change', '.audio_file', function() {
     var file = $(this)[0].files[0];
     $(this).siblings('.file-name').text(file.name);
@@ -13,20 +24,7 @@ $(document).ready(function() {
 
   function afterFileUpload ($self, url) {
     loadAudio($self, url);
-    fetchDuration($self, url);
-  }
-
-  function fetchDuration($self, url) {
-    var audioName = $self.siblings('.audio_field').attr('name')
-    if (audioName.indexOf('[chapters_attributes]') >= 0) {
-      var durationName = audioName.replace('[audio_url]', '[duration]')
-      var durationInput = $('input[name="' + durationName + '"]')
-      if (durationInput.length == 1) {
-        $.get(url + '?avinfo', function(info) {
-          durationInput.val(info.format.duration)
-        })
-      }
-    }
+    $self.siblings('.delete_audio').removeAttr('disabled');
   }
 
   function loadAudio($self, url) {
@@ -72,6 +70,10 @@ $(document).ready(function() {
     formData = new FormData();
     formData.append('token', token);
     formData.append('file', f);
+    if (f.name && f.name.length > 0) {
+      var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
+      formData.append('key', prefix + '-' + f.name);
+    }
 
     $.ajax({
       url: "http://up-z2.qiniu.com",

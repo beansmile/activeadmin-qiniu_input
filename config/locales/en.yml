@@ -1,10 +1,11 @@
 en:
   active_admin:
     qiniu_input:
-      upload: upload
+      upload: Upload
       uploading: Uploading...
       uploaded: Uploaded
       upload_span: Upload Image
       unsupported_format: Unsupported Format
       upload_image_hint: JPG or PNG file is recommended
       choose_file: Choose File
+      delete: Delete

@@ -5,6 +5,17 @@ $(document).ready(function() {
     fileUpload($(this).siblings(".video_file"), afterFileUpload);
   })
 
+  $(document).on('click', '.delete_video', function(e){
+    e.preventDefault();
+    var _this = $(this);
+    _this.parents('.video-wrapper').find('.inline-hints').html('');
+    _this.siblings('.video_field').val('');
+    _this.siblings('.video_file').val('');
+    _this.siblings('.file-name').text('');
+    _this.siblings(".upload_video").attr('disabled', 'disabled');
+    _this.attr('disabled', 'disabled');
+  });
+
   $(document).on('change', '.video_file', function() {
     var file = $(this)[0].files[0];
     $(this).siblings('.file-name').text(file.name);
@@ -13,20 +24,7 @@ $(document).ready(function() {
 
   function afterFileUpload ($self, url) {
     loadVideo($self, url);
-    fetchDuration($self, url);
-  }
-
-  function fetchDuration($self, url) {
-    var videoName = $self.siblings('.video_field').attr('name')
-    if (videoName.indexOf('[chapters_attributes]') >= 0) {
-      var durationName = videoName.replace('[video_url]', '[duration]')
-      var durationInput = $('input[name="' + durationName + '"]')
-      if (durationInput.length == 1) {
-        $.get(url + '?avinfo', function(info) {
-          durationInput.val(info.format.duration)
-        })
-      }
-    }
+    $self.siblings('.delete_video').removeAttr('disabled');
   }
 
   function loadVideo($self, url) {
@@ -72,6 +70,10 @@ $(document).ready(function() {
     formData = new FormData();
     formData.append('token', token);
     formData.append('file', f);
+    if (f.name && f.name.length > 0) {
+      var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
+      formData.append('key', prefix + '-' + f.name);
+    }
 
     $.ajax({
       url: "http://up-z2.qiniu.com",
