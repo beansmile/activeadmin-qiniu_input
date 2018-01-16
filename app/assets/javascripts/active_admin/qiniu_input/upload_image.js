@@ -7,6 +7,16 @@ $(document).ready(function() {
     }
   };
 
+  $(document).on('click', '.delete_image', function(e){
+    e.preventDefault();
+    var _this = $(this);
+    var qiniuImageInput = _this.parents('.qiniu-image-input');
+    qiniuImageInput.find('.add-image').val('');
+    qiniuImageInput.find('.hidden-input').val('');
+    qiniuImageInput.find('.image-container').html('');
+    _this.attr('disabled', 'disabled');
+  });
+
   $(document).on('change', '.add-single-picture .add-image', changeHandler)
 
   function getQiniuMeta(_that, event) {
@@ -26,9 +36,10 @@ $(document).ready(function() {
             if(imageShowEle.length > 0) {
               imageShowEle.attr('src', url);
             } else {
-              $(_that).before("<img src='" + url + "' class='image-show'/>");
+              $(_that).parent().find(".image-container").html("<img src='" + url + "' class='image-show'/>");
             }
             $(_that).parent().find(".single-image").val(url);
+            $(_that).parents('.qiniu-image-input').find(".delete_image").removeAttr('disabled');
           });
        }
       }
@@ -37,8 +48,13 @@ $(document).ready(function() {
 
   function uploadImageToQiniu(token, event, callbackFunc) {
     var formData = new FormData();
+    var f = event.target.files[0];
     formData.append('token', token);
-    formData.append('file', event.target.files[0]);
+    formData.append('file', f);
+    if (f.name && f.name.length > 0) {
+      var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
+      formData.append('key', prefix + '-' + f.name);
+    }
 
     $.ajax({
       url: "http://up-z2.qiniu.com",

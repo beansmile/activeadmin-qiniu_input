@@ -10,7 +10,7 @@ ActiveAdmin::Views::TableFor.class_eval do
     column attribute do |model|
       url = model.try(attribute)
       if url.present?
-        video(width: 150, controls: true, preload: 'auto', controlsList: 'nodownload') do
+        video(width: 150, controls: true, preload: 'auto') do
           source src: url
         end
       end
@@ -21,7 +21,7 @@ ActiveAdmin::Views::TableFor.class_eval do
     column attribute do |model|
       url = model.try(attribute)
       if url.present?
-        audio(src: url, width: 150, controls: true, preload: 'auto', controlsList: 'nodownload')
+        audio(src: url, width: 150, controls: true, preload: 'auto')
       end
     end
   end
@@ -39,7 +39,7 @@ ActiveAdmin::Views::AttributesTable.class_eval do
     row attribute do |model|
       url = model.try(attribute)
       if url.present?
-        video(width: 300, controls: true, preload: 'auto', controlsList: 'nodownload') do
+        video(width: 300, controls: true, preload: 'auto') do
           source src: url
         end
       end
@@ -50,7 +50,7 @@ ActiveAdmin::Views::AttributesTable.class_eval do
     row attribute do |model|
       url = model.try(attribute)
       if url.present?
-        audio(src: url, width: 300, controls: true, preload: 'auto', controlsList: 'nodownload')
+        audio(src: url, width: 300, controls: true, preload: 'auto')
       end
     end
   end

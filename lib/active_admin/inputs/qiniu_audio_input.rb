@@ -15,6 +15,7 @@ module ActiveAdmin
                   <span class='file-select'>#{I18n.t('active_admin.qiniu_input.choose_file')}</span>
                   <span class='file-name'></span>
                   <button class='upload_audio' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
+                  <button class='delete_audio' #{value.present? ? '' : 'disabled="disabled"'}>#{I18n.t('active_admin.qiniu_input.delete')}</button>
                 </div>
                 <div class='progressbar' hidden>
                   <div class='header'>

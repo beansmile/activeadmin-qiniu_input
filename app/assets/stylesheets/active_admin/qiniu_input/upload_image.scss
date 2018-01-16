@@ -64,4 +64,24 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  .delete_image {
+    background: #5ea3d3;
+    box-shadow: none;
+    color: #fff;
+    border: solid 1px;
+    border-radius: 6px;
+    padding: 5px 12px;
+
+    &:hover {
+      background: #72aed8;
+    }
+  }
+
+  button[disabled] {
+    background: #8b9297;
+    &:hover {
+      background: #8b9297;
+    }
+  }
 }

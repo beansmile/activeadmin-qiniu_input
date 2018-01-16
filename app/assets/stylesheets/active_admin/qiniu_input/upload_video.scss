@@ -41,7 +41,7 @@
 
   }
 
-  .upload_video {
+  .upload_video, .delete_video {
     background: #5ea3d3;
     box-shadow: none;
     color: #fff;
@@ -58,6 +58,7 @@
     background: #8b9297;
     &:hover {
       background: #8b9297;
+      cursor: not-allowed;
     }
   }
 
