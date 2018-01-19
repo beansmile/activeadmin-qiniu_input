@@ -33,7 +33,7 @@ $(document).ready(function() {
     if ($hints.find('.audio').length > 1) {
       $hints.find('.audio').attr('src', url);
     } else {
-      $hints.html("<audio src=" + url + " controls='controls' preload='auto'></audio>")
+      $hints.html('<audio src="' + url + '" controls="controls" preload="auto"></audio>')
     }
   }
 

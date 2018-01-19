@@ -33,7 +33,7 @@ $(document).ready(function() {
     if ($hints.find('.video').length > 1) {
       $hints.find('.video').attr('src', url);
     } else {
-      $hints.html("<video src=" + url + " controls='controls' controlsList='nodownload' preload='auto'></video>")
+      $hints.html('<video src="' + url + '" controls="controls" controlsList="nodownload" preload="auto"></video>')
     }
   }
 
