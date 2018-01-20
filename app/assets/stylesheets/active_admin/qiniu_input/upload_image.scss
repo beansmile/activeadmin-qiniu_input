@@ -44,6 +44,9 @@
       vertical-align: top;
       position: absolute;
       left: 0;
+      &:hover {
+        z-index: 999;
+      }
     }
     .upload-icon {
       left: 50%;
