@@ -11,6 +11,7 @@ module ActiveAdmin
               <div class="qiniu-image-input">
                 <div class="add-single-picture">
                   <input type="file" class="add-image"
+                    accept="image/*"
                     data-uploading-text="#{I18n.t('active_admin.qiniu_input.uploading')}"
                     data-upload-span-text="#{I18n.t('active_admin.qiniu_input.upload_span')}"
                     data-qiniu-meta-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}" />
