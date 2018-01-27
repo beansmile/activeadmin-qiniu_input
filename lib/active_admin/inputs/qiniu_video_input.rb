@@ -8,14 +8,19 @@ module ActiveAdmin
           value = object.try(method)
           label_html <<
             <<-HTML
-              <div class="video-wrapper">
+              <div class="qiniu-video-wrapper"
+                data-uptoken-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}"
+                data-domain="#{Qiniu::Config.settings[:domain]}"
+                data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
+                data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}"
+                >
                 <div class="upload-btn">
-                  <input name="#{object_name}[#{input_name}]" class="hidden-input video_field" value="#{value}"/>
-                  <input accept="video/*" class="video_file" type="file" data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}" data-qiniu-meta-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}" >
+                  <input name="#{object_name}[#{input_name}]" class="real-input" value="#{value}" type="hidden"/>
+                  <input accept="video/*" class="video-file" type="file"/>
                   <span class='file-select'>#{I18n.t('active_admin.qiniu_input.choose_file')}</span>
                   <span class='file-name'></span>
-                  <button class='upload_video' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
-                  <button class='delete_video' #{value.present? ? '' : 'disabled="disabled"'}>#{I18n.t('active_admin.qiniu_input.delete')}</button>
+                  <button class='upload-video' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
+                  <button class='delete-video' #{value.present? ? '' : 'disabled="disabled"'}>#{I18n.t('active_admin.qiniu_input.delete')}</button>
                 </div>
                 <div class='progressbar' hidden>
                   <div class='header'>

@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
       3600
     )
     uptoken = Qiniu::Auth.generate_uptoken(put_policy)
-    render json: { token: uptoken, bucket_domain: Qiniu::Config.settings[:domain]}
+    render json: { uptoken: uptoken }
   end
 end

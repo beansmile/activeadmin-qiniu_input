@@ -8,14 +8,19 @@ module ActiveAdmin
           value = object.try(method)
           label_html <<
             <<-HTML
-              <div class="audio-wrapper">
+              <div class="qiniu-audio-wrapper"
+                data-uptoken-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}"
+                data-domain="#{Qiniu::Config.settings[:domain]}"
+                data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
+                data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}"
+                >
                 <div class="upload-btn">
-                  <input name="#{object_name}[#{input_name}]" class="hidden-input audio_field" value="#{value}"/>
-                  <input accept="audio/*" class="audio_file" type="file" data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}" data-qiniu-meta-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}" >
+                  <input name="#{object_name}[#{input_name}]" type="hidden" class="real-input" value="#{value}"/>
+                  <input accept="audio/*" class="audio-file" type="file">
                   <span class='file-select'>#{I18n.t('active_admin.qiniu_input.choose_file')}</span>
                   <span class='file-name'></span>
-                  <button class='upload_audio' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
-                  <button class='delete_audio' #{value.present? ? '' : 'disabled="disabled"'}>#{I18n.t('active_admin.qiniu_input.delete')}</button>
+                  <button class='upload-audio' disabled="disabled">#{I18n.t('active_admin.qiniu_input.upload')}</button>
+                  <button class='delete-audio' #{value.present? ? '' : 'disabled="disabled"'}>#{I18n.t('active_admin.qiniu_input.delete')}</button>
                 </div>
                 <div class='progressbar' hidden>
                   <div class='header'>
