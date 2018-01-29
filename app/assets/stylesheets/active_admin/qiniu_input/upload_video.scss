@@ -1,13 +1,9 @@
-.video-wrapper {
-  .hidden-input {
-    display: none;
-  }
-
+.qiniu-video-wrapper, .qiniu-audio-wrapper {
   .inline-hints {
     margin-top: 10px;
-    video {
-      max-height: 450px;
-      max-width: 960px;
+    video, audio {
+      max-height: 200px;
+      max-width: 300px;
     }
   }
 
@@ -16,7 +12,7 @@
     margin-left: 20%;
     position: relative;
 
-    .video_file {
+    .video-file, .audio-file {
       opacity: 0;
       display: inline-block;
       width: 12%;
@@ -40,7 +36,7 @@
 
   }
 
-  .upload_video, .delete_video {
+  .upload-video, .delete-video, .upload-audio, .delete-audio {
     background: #5ea3d3;
     box-shadow: none;
     color: #fff;
