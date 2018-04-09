@@ -214,6 +214,10 @@ window.QiniuInput = {
 
 $(document).ready(function() {
   $(document).on('has_many_add:after', '.has_many_container', function(event, fieldset, container) {
+    // Stop propagation event because the choice box will be trigger many times when it nesting has_many function.
+    event.preventDefault();
+    event.stopPropagation();
+
     $(fieldset).find('.qiniu-image-wrapper').each(function(_index, element) {
       QiniuInput.initImageInput(element)
     })
