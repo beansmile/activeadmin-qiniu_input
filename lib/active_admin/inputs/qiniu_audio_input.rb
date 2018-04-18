@@ -8,7 +8,7 @@ module ActiveAdmin
           value = object.try(method)
           label_html <<
             <<-HTML
-              <div class="qiniu-audio-wrapper"
+              <div class="qiniu-audio-wrapper qiniu-input-wrapper"
                 data-uptoken-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}"
                 data-domain="#{Qiniu::Config.settings[:domain]}"
                 data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
