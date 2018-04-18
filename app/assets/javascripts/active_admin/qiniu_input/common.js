@@ -214,18 +214,20 @@ window.QiniuInput = {
 
 $(document).ready(function() {
   $(document).on('has_many_add:after', '.has_many_container', function(event, fieldset, container) {
-    // Stop propagation event because the choice box will be trigger many times when it nesting has_many function.
-    event.preventDefault();
-    event.stopPropagation();
+    if ($(fieldset).find('.qiniu-input-wrapper').length > 0) {
+      // Stop propagation event because the choice box will be trigger many times when it nesting has_many function.
+      event.preventDefault();
+      event.stopPropagation();
 
-    $(fieldset).find('.qiniu-image-wrapper').each(function(_index, element) {
-      QiniuInput.initImageInput(element)
-    })
-    $(fieldset).find('.qiniu-video-wrapper').each(function(_index, element) {
-      QiniuInput.initVideoInput(element)
-    })
-    $(fieldset).find('.qiniu-audio-wrapper').each(function(_index, element) {
-      QiniuInput.initAudioInput(element)
-    })
+      $(fieldset).find('.qiniu-image-wrapper').each(function(_index, element) {
+        QiniuInput.initImageInput(element)
+      })
+      $(fieldset).find('.qiniu-video-wrapper').each(function(_index, element) {
+        QiniuInput.initVideoInput(element)
+      })
+      $(fieldset).find('.qiniu-audio-wrapper').each(function(_index, element) {
+        QiniuInput.initAudioInput(element)
+      })
+    }
   })
 })
