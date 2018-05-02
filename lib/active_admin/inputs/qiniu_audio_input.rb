@@ -10,7 +10,7 @@ module ActiveAdmin
             <<-HTML
               <div class="qiniu-audio-wrapper qiniu-input-wrapper"
                 data-uptoken-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}"
-                data-domain="#{Qiniu::Config.settings[:domain]}"
+                data-domain="#{ActiveAdmin::QiniuInput.domain}"
                 data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
                 data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}"
                 >

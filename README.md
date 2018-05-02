@@ -38,10 +38,11 @@ Check [here](docs/install_generator.md) to see more information about this gener
 
 * To use this gem, we need you to implement your API with which we can fetch the [Qiniu meta](https://developer.qiniu.com/kodo/manual/1208/upload-token). With the use of [Qiniu gem](https://github.com/qiniu/ruby-sdk), it should be easy. Please refer to our [test controller code](test/dummy/app/controllers/application_controller.rb).
 
-* Use your api to change `qiniu_meta_url` in `config/initializers/active_admin/qiniu_input.rb`.
+* Use your api to change `qiniu_meta_url` in `config/initializers/active_admin/qiniu_input.rb`. You also have to set `ActiveAdmin::QiniuInput.domain`.
 
 ```ruby
 ActiveAdmin::QiniuInput.qiniu_meta_url = "/your_qiniu_meta_url"
+ActiveAdmin::QiniuInput.domain = "example.com"
 ```
 
 * use our inputs in your ActiveAdmin form. Use them like this:
