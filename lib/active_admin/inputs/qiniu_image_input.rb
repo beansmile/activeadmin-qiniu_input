@@ -11,7 +11,7 @@ module ActiveAdmin
               <div
                 class="qiniu-image-wrapper qiniu-input-wrapper"
                 data-uptoken-url="#{ActiveAdmin::QiniuInput.qiniu_meta_url}"
-                data-domain="#{Qiniu::Config.settings[:domain]}"
+                data-domain="#{ActiveAdmin::QiniuInput.domain}"
                 data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
                 data-uploading-text="#{I18n.t('active_admin.qiniu_input.uploading')}"
                 data-upload-span-text="#{I18n.t('active_admin.qiniu_input.upload_span')}"

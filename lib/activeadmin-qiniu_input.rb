@@ -9,7 +9,7 @@ require 'active_admin/inputs/qiniu_audio_input'
 
 module ActiveAdmin
   module QiniuInput
-    mattr_accessor :qiniu_meta_url
+    mattr_accessor :qiniu_meta_url, :domain
     self.qiniu_meta_url = '/qiniu_meta'
   end
 end
