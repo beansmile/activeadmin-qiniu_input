@@ -13,6 +13,7 @@ module ActiveAdmin
                 data-domain="#{ActiveAdmin::QiniuInput.domain}"
                 data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
                 data-unsupported-format="#{I18n.t('active_admin.qiniu_input.unsupported_format')}"
+                data-protocol="#{ActiveAdmin::QiniuInput.protocol}"
                 >
                 <div class="upload-btn">
                   <input name="#{object_name}[#{input_name}]" type="hidden" class="real-input" value="#{value}"/>

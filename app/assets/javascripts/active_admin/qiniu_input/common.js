@@ -28,7 +28,7 @@ window.QiniuInput = {
           var response = info.response
           var json = JSON.parse(response)
           var key = json.key
-          var url = "http://" + up.getOption('domain') + "/" + key;
+          var url = qiniuImageWrapper.data('protocol') + "://" + up.getOption('domain') + "/" + key;
           var imageShowEle = qiniuImageWrapper.find('.image-show');
           qiniuImageWrapper.find('.upload-span').text(qiniuImageWrapper.data('upload-span-text'));
           if(imageShowEle.length > 0) {
@@ -94,7 +94,7 @@ window.QiniuInput = {
           var response = info.response
           var json = JSON.parse(response)
           var key = json.key
-          var url = "http://" + up.getOption('domain') + "/" + key;
+          var url = qiniuVideoWrapper.data('protocol') + "://" + up.getOption('domain') + "/" + key;
           qiniuVideoWrapper.find('.real-input').val(url);
           hints = qiniuVideoWrapper.find('.inline-hints');
           if (hints.find('.video').length > 1) {
@@ -165,7 +165,7 @@ window.QiniuInput = {
           var response = info.response
           var json = JSON.parse(response)
           var key = json.key
-          var url = "http://" + up.getOption('domain') + "/" + key;
+          var url = qiniuAudioWrapper.data('protocol') + "://" + up.getOption('domain') + "/" + key;
           qiniuAudioWrapper.find('.real-input').val(url);
           hints = qiniuAudioWrapper.find('.inline-hints');
           if (hints.find('.audio').length > 1) {

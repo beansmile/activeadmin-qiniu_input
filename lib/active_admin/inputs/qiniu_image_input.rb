@@ -15,6 +15,7 @@ module ActiveAdmin
                 data-flash-swf-url="#{ActionController::Base.helpers.asset_path('Moxie.swf')}"
                 data-uploading-text="#{I18n.t('active_admin.qiniu_input.uploading')}"
                 data-upload-span-text="#{I18n.t('active_admin.qiniu_input.upload_span')}"
+                data-protocol="#{ActiveAdmin::QiniuInput.protocol}"
                 >
                 <input type="hidden" name="#{object_name}[#{input_name}]"value="#{value}" class="real-input"/>
                 <div class="add-single-picture">
