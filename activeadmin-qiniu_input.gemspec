@@ -21,8 +21,8 @@ TEXT
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
   s.add_dependency 'rails', '>= 5.1'
-  s.add_dependency 'activeadmin', '>= 1.1'
-  s.add_dependency 'qiniu', '>= 6.9'
+  s.add_dependency 'activeadmin', '>= 1.0'
+  s.add_dependency 'qiniu', '>= 6.8'
 
   s.add_development_dependency 'sqlite3', '~> 1.3'
 end
