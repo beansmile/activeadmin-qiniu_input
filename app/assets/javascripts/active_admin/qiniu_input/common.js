@@ -45,10 +45,7 @@ window.QiniuInput = {
         },
         'UploadComplete': function() {
         },
-        'Key': function(up, file) {
-          var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
-          return prefix + '-' + file.name
-        }
+        'Key': QiniuInput.createQiniuFileKey
       }
     })
   },
@@ -112,10 +109,7 @@ window.QiniuInput = {
         },
         'UploadComplete': function() {
         },
-        'Key': function(up, file) {
-          var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
-          return prefix + '-' + file.name
-        }
+        'Key': QiniuInput.createQiniuFileKey
       }
     })
     qiniuVideoWrapper.find('.upload-video').off('click').on('click', function(e) {
@@ -183,10 +177,7 @@ window.QiniuInput = {
         },
         'UploadComplete': function() {
         },
-        'Key': function(up, file) {
-          var prefix = (new Date()).getTime() + '-' + Math.floor(Math.random() * Math.floor(1000))
-          return prefix + '-' + file.name
-        }
+        'Key': QiniuInput.createQiniuFileKey
       }
     })
     qiniuAudioWrapper.find('.upload-audio').off('click').on('click', function(e) {
@@ -209,6 +200,10 @@ window.QiniuInput = {
   },
   calculateFileSize: function(size) {
     return (Math.round(size * 100 / (1024 * 1024)) / 100).toString()
+  },
+  createQiniuFileKey: function(up, file) {
+    var prefix = (new Date()).getTime() + '/' + Math.floor(Math.random() * Math.floor(1000))
+    return prefix + '/' + file.name
   }
 }
 
